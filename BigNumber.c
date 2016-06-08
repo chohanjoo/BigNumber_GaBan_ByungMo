@@ -1,34 +1,49 @@
 /*///////////////////////////////////////////
  
- ±âº» º£ÀÌ½º 
-	¸¸µçÀÌ : Àüº´¸ğ  
+ ê¸°ë³¸ ë² ì´ìŠ¤ 
+	ë§Œë“ ì´ : ì „ë³‘ëª¨  
 
 //////////////////////////////////////////////*/
 #include <stdio.h>
-#define VAR_MAX 10		//º¯¼öÀÇ °¹¼ö 
-char Num[100][59]; //ÀÓ½Ã º¯¼ö 
-char VAR[VAR_MAX][59];	//º¯¼ö
-char VARC[VAR_MAX];	//º¯¼ö ±âÈ£ 
-char Solving[1000];		//°¡°ø ½Ä
-char Input[1000]; 	//°¡°øÀü ½Ä 
+#define VAR_MAX 10		//ë³€ìˆ˜ì˜ ê°¯ìˆ˜ 
+char Num[100][59]; //ì„ì‹œ ë³€ìˆ˜ 
+char VAR[VAR_MAX][59];	//ë³€ìˆ˜
+char VARC[VAR_MAX];	//ë³€ìˆ˜ ê¸°í˜¸ 
+char Solving[1000];		//ê°€ê³µ ì‹
+char Input[1000]; 	//ê°€ê³µì „ ì‹ 
 
-///ÇÑÁÖÇü ºÎºĞ 
-void add(int a,int b);	//´õÇÏ±â //a,b = ÀÓ½Ãº¯¼ö¿¡¼­ ¼ıÀÚ¹øÈ£		10001ºÎÅÍ´Â º¯¼ö ¹øÈ£ README.md ¸¦ ÅëÇØ ³ªÁß¿¡ ¼³¸í 
-void multiply(int a,int b);	//°öÇÏ±â 
+///í•œì£¼í˜• ë¶€ë¶„ 
+void add(int a,int b){
+    char num_1[61]="";
+    char num_2[61]="";
+    int i,t;
 
-///Á¤¸íÈÆ ºÎºĞ 
-void divide(int a,int b);	//³ª´©±â
-void rest(int a,int b); //³ª¸ÓÁö 
+    scanf("%s",num_1);
+    for(i=0;i<61;i++)
+        if(num_1[i]=='\0')
+            t=i;
 
-///Àüº´¸ğ ºÎºĞ 
-void solve(void){};	//Input ÀÇ¹Ì ºĞ¼®
-void save();	//ÀúÀå 
-void load();	//ºÒ·¯¿À±â
+    for(i=0;num_1[i]!='\0';i+=3){
+        printf("%c%c%c",num_1[i],num_1[i+1],num_1[i+2]);
+        if(num_1[i+3]!='\0')
+            printf(",");
+    return 0;
+}	//ë”í•˜ê¸° //a,b = ì„ì‹œë³€ìˆ˜ì—ì„œ ìˆ«ìë²ˆí˜¸		10001ë¶€í„°ëŠ” ë³€ìˆ˜ ë²ˆí˜¸ README.md ë¥¼ í†µí•´ ë‚˜ì¤‘ì— ì„¤ëª… 
+void multiply(int a,int b);	//ê³±í•˜ê¸° 
 
-///±è»ó·Ï ºÎºĞ 
-void minus(int a);	//´ÜÇ×- 
-void subtract(int a,int b);	//•û±â 
-void print(); 	//ÄŞ¸¶ Á¶°Ç¿¡¸Â°Ô Ãâ·Â 
+///ì •ëª…í›ˆ ë¶€ë¶„ 
+void divide(int a,int b);	//ë‚˜ëˆ„ê¸°
+void rest(int a,int b); //ë‚˜ë¨¸ì§€ 
+
+///ì „ë³‘ëª¨ ë¶€ë¶„ 
+void solve(void){};	//Input ì˜ë¯¸ ë¶„ì„
+void save();	//ì €ì¥ 
+void load();	//ë¶ˆëŸ¬ì˜¤ê¸°
+
+///ê¹€ìƒë¡ ë¶€ë¶„ 
+void minus(int a);	//ë‹¨í•­- 
+void subtract(int a,int b);	//Â•å…® 
+void print(); 	//ì½¤ë§ˆ ì¡°ê±´ì—ë§ê²Œ ì¶œë ¥ 
 
 
 char EndString[] = "end";
@@ -39,7 +54,7 @@ int main(void){
 		printf("(Input) ");
 		scanf("%s",Input);
 		
-		//////////////////////////	end Ä¡¸é ³¡³ª´Â ¹®Àå 
+		//////////////////////////	end ì¹˜ë©´ ëë‚˜ëŠ” ë¬¸ì¥ 
 		int end = 1;
 		int i = 0; 
 		for(i = 0; i < 3; i++)
